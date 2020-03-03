@@ -15,3 +15,8 @@ sources:
 
     tables:
       - name: payment
+        columns:
+          - name: id
+            tests:
+              - not_null
+              - unique
