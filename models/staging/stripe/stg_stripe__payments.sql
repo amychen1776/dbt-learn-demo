@@ -1,6 +1,6 @@
 with source_payments as (
 
-    select * from raw.stripe.payment
+    select * from {{ source('stripe', 'payment') }}
 
 ),
 
