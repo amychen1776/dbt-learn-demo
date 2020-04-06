@@ -5,7 +5,7 @@ sources:
     database: raw
 
     loaded_at_field: _batched_at
-    loader: airflow     # this is just for documentation
+    loader: airflow
 
     freshness:
       warn_after: {count: 12, period: hour}
@@ -20,3 +20,9 @@ sources:
             tests:
               - not_null
               - unique
+
+          - name: order_id
+            description: Foreign key to jaffle_shop orders
+
+          - name: amount
+            description: Amount in US cents

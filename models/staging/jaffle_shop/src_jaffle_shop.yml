@@ -2,6 +2,7 @@ version: 2
 
 sources:
   - name: jaffle_shop
+    description: A replica of the postgres database
     database: raw
 
     tables:
@@ -13,6 +14,7 @@ sources:
               - not_null
 
       - name: orders
+        description: One record per order
         loaded_at_field: _etl_loaded_at
 
         freshness:
@@ -26,11 +28,13 @@ sources:
               - not_null
 
           - name: status
+            description: "{{ doc('order_status') }}"
             tests:
               - accepted_values:
                   values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
 
           - name: user_id
+            description: Foreign key to
             tests:
               - not_null
               - relationships:
