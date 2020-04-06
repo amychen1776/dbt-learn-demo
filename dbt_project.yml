@@ -1,5 +1,6 @@
 name: 'jaffle_shop'
 version: '1.0.0'
+require-dbt-version: [">=0.16.0", "<0.17.0"]
 
 profile: 'jaffle_shop'
 
@@ -14,5 +15,10 @@ clean-targets:
     - "target"
     - "dbt_modules"
 
+quoting:
+  database: false
+  identifier: false
+  schema: false
+
 models:
-  jaffle_shop:
+  transient: true
