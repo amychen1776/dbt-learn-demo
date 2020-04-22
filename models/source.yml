@@ -1,0 +1,6 @@
+version: 2
+
+sources:
+  - name: snapshots
+    tables:
+      - name: orders_snapshot
