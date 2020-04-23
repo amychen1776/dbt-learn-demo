@@ -33,7 +33,7 @@
             'update' as dbt_change_type,
             snapshotted_data.dbt_scd_id,
             -- also our change
-            coalesce(source_data.dbt_valid_from, current_timestamp) as dbt_valid_to
+            coalesce(source_data.dbt_valid_from, {{ snapshot_get_time() }}) as dbt_valid_to
 
         from snapshotted_data
         left join source_data on snapshotted_data.dbt_unique_key = source_data.dbt_unique_key
