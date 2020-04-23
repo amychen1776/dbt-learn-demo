@@ -27,14 +27,14 @@
     {%- if column_added -%}
         TRUE
     {%- else -%}
-    {{ current_rel }}.{{ primary_key }}) is null or 
+    -- this indicates that the source record was hard-deleted
+    {{ current_rel }}.{{ primary_key }}) is null or
     {% for col in check_cols -%}
         {{ snapshotted_rel }}.{{ col }} != {{ current_rel }}.{{ col }}
         or
         ({{ snapshotted_rel }}.{{ col }} is null) != ({{ current_rel }}.{{ col }} is null)
         {%- if not loop.last %} or {% endif -%}
     {%- endfor -%}
-        -- this indicates that the source record was hard-deleted
 
     {%- endif -%}
     )
