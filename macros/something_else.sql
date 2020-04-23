@@ -35,9 +35,8 @@
             -- also our change
             coalesce(source_data.dbt_valid_from, current_timestamp) as dbt_valid_to
 
-        from source_data
-        -- our changes
-        full outer join snapshotted_data on snapshotted_data.dbt_unique_key = source_data.dbt_unique_key
+        from snapshotted_data
+        left join source_data on snapshotted_data.dbt_unique_key = source_data.dbt_unique_key
         where snapshotted_data.dbt_valid_to is null
         and (
             {{ strategy.row_changed }}

@@ -4,7 +4,8 @@
     -- here is what we changed
     {% set row_changed_expr -%}
         ({{ snapshotted_rel }}.{{ updated_at }} < {{ current_rel }}.{{ updated_at }}
-            or {{ snapshotted_rel }}.{{primary_key}} not in (select {{ primary_key}} from {{ current_rel }})
+            -- this indicates that the record has been hard-deleted
+            or {{ current_rel }}.{{ primary_key}} is null
         )
     {%- endset %}
 
