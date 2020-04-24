@@ -23,7 +23,7 @@ final as (
     select
         event_id,
         event_name,
-        sum(tickets_purchased) as tickets_orders,
+        sum(tickets_purchased) as tickets_ordered,
         sum(case when has_charge then tickets_purchased else 0 end) as tickets_charged,
         sum(case when is_cancelled then tickets_purchased else 0 end) as tickets_cancelled,
         sum(case when has_refund then tickets_purchased else 0 end) as tickets_refunded
