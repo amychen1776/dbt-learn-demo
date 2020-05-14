@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+    - name: learn_stripe
+      database: raw
+      tables:
+        - name: charges
+          columns:
+            - name: id
+              tests:
+              - not_null
+              - unique
+        - name: refunds
+          columns:
+            - name: id
+              tests:
+              - not_null
+              - unique

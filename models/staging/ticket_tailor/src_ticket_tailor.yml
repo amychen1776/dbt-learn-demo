@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+    - name: ticket_tailor
+      database: raw
+      tables:
+        - name: orders
+          columns:
+            - name: order_id
+              tests:
+              - not_null
+              - unique

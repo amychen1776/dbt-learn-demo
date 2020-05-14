@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: ticket_sales
+    description: One record per ticket sale
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+  - name: fct_event
+    description: One record per event. Shows tickets sold, charged, and refunded
+    columns:
+      - name: event_name
+        tests:
+          - unique
+          - not_null
