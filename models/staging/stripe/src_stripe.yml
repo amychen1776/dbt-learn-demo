@@ -26,3 +26,9 @@ sources:
 
           - name: amount
             description: Amount in US cents
+
+          - name: paymentMethod
+            quote: true
+            tests:
+              - accepted_values:
+                  values: ['credit_card','coupon','gift_card','bank_transfer']
