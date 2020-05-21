@@ -21,8 +21,8 @@ joined as (
     select
     
         orders.*,
-        charges.charge_id is null as is_charged,
-        refunds.charge_id is null as is_refunded
+        charges.charge_id is not null as is_charged,
+        refunds.charge_id is not null as is_refunded
 
     from orders
     left join charges on 
