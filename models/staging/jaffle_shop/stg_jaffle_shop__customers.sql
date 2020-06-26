@@ -13,6 +13,9 @@ renamed_customers as (
 
     from source_customers
 
+    where id not in (1, 2)
+        and last_name not in ('Carroll')
+
 )
 
 select * from renamed_customers
