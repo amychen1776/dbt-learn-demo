@@ -28,7 +28,7 @@ final as (
         orders.order_id,
         orders.customer_id,
         orders.order_date,
-        orders.status,
+       -- orders.status,
         coalesce(order_payments.amount, 0) as amount
 
     from orders
